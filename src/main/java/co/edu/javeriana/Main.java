@@ -18,10 +18,12 @@ public class Main {
         UserRepository repository = new UserRepositoryImpl();
         UserService service = new UserService(repository);
 
-        List<User> users = new ArrayList<>();
-        users.add(service.saveUser(new User("1", "David")));
-        users.add(service.saveUser(new User("2", "Estefanía")));
-        users.add(service.saveUser(new User("3", "Nicolás")));
-        System.out.println(users);
+        service.createUser(new User("1", "David"));
+        service.createUser(new User("2", "Estefanía"));
+        service.createUser(new User("3", "Nicolás"));
+        System.out.println(service.readAllUsers());
+        System.out.println(service.readUserById("1"));
+        service.deleteUser("3");
+        System.out.println(service.readAllUsers());
     }
 }
