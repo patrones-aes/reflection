@@ -2,7 +2,7 @@
 
 ## Lenguajes de Documentación 🌐
 
-[![en](https://img.shields.io/badge/lang-es-blue.svg)](https://github.com/patrones-aes/reflection/blob/main/README.md)
+[![en](https://img.shields.io/badge/lang-en-blue.svg)](https://github.com/patrones-aes/reflection/blob/main/README.md)
 
 ## Pasos ✅
 
