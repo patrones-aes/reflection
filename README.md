@@ -1,4 +1,10 @@
-# Reflection Workshop
+# Reflection Workshop 🪞
+
+## Documentation Languages 🌐
+
+[![es](https://img.shields.io/badge/lang-es-blue.svg)](https://github.com/jonatasemidio/multilanguage-readme-pattern/blob/master/README.es.md)
+
+## Steps ✅
 
 If you want to use this ORM, you have to create a `connection.properties` file in your resources folder. As it is shown in the following example:
 
