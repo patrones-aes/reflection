@@ -12,5 +12,5 @@ public @interface Column {
     String name();
     boolean nullable() default false;
     boolean primaryKey() default false;
-    boolean unique() default true;
+    boolean unique() default false;
 }

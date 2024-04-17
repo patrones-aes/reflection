@@ -10,11 +10,14 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "users")
-public class User {
+@Table(name = "students")
+public class Student {
     @Column(name = "id", primaryKey = true)
-    private String id;
+    private Integer id;
 
     @Column(name = "first_name")
     private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
 }

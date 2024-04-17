@@ -1,29 +1,27 @@
 package co.edu.javeriana;
 
-import co.edu.javeriana.example.User;
-import co.edu.javeriana.example.UserRepository;
-import co.edu.javeriana.example.UserRepositoryImpl;
-import co.edu.javeriana.example.UserService;
-
-import java.util.ArrayList;
-import java.util.List;
+import co.edu.javeriana.example.Student;
+import co.edu.javeriana.example.StudentRepository;
+import co.edu.javeriana.example.StudentRepositoryImpl;
+import co.edu.javeriana.example.StudentService;
 
 import static co.edu.javeriana.annotation.impl.AnnotationImpl.createTable;
 
 public class Main {
     public static void main(String[] args) {
-        User user = new User();
-        createTable(user);
+        Student student = new Student();
+        createTable(student);
 
-        UserRepository repository = new UserRepositoryImpl();
-        UserService service = new UserService(repository);
+        StudentRepository repository = new StudentRepositoryImpl();
+        StudentService service = new StudentService(repository);
 
-        service.createUser(new User("1", "David"));
-        service.createUser(new User("2", "Estefanía"));
-        service.createUser(new User("3", "Nicolás"));
-        System.out.println(service.readAllUsers());
-        System.out.println(service.readUserById("1"));
-        service.deleteUser("3");
+        service.createUser(new Student(1, "David", "Ramírez"));
+        service.createUser(new Student(2, "Estefanía", "Bermúdez"));
+        service.createUser(new Student(3, "Nicolás", "Ramírez"));
+        service.createUser(new Student(4, "Javier", "Ramírez"));
+        service.createUser(new Student(5, "Rebeca", "Monroy"));
+        service.createUser(new Student(6, "Damaris", "Arroyo"));
+
         System.out.println(service.readAllUsers());
     }
 }

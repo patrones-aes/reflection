@@ -11,6 +11,6 @@ Si desea utilizar este ORM, es necesario que agregue el archivo `connection.prop
 ```properties
 driver=org.postgresql.Driver
 url=jdbc:postgresql://<your host>:<your port>/<your database>
-user=<your-username>
+student=<your-username>
 password=<your-password>
 ```

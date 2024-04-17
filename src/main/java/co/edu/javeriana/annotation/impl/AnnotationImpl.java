@@ -6,12 +6,14 @@ import co.edu.javeriana.config.DatabaseConnectionConfig;
 import co.edu.javeriana.type.TypeStrategy;
 import co.edu.javeriana.type.impl.IntegerStrategy;
 import co.edu.javeriana.type.impl.StringStrategy;
+import lombok.extern.java.Log;
 
 import java.lang.reflect.Field;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
 
+@Log
 public class AnnotationImpl {
     public static void createTable(Object object) {
         if (Objects.isNull(object)) {
@@ -21,11 +23,16 @@ public class AnnotationImpl {
         if (objectClass.isAnnotationPresent(Table.class)) {
             Table annotation = objectClass.getAnnotation(Table.class);
             try (Statement statement = DatabaseConnectionConfig.getConnection().createStatement()) {
+                log.info("Dropping table " + annotation.name());
+                String dropQuery = "DROP TABLE IF EXISTS " + annotation.name();
+                log.info("Executing " + dropQuery);
+                statement.executeUpdate(dropQuery);
                 String query = "CREATE TABLE IF NOT EXISTS "
                         + annotation.name()
                         + "("
                         + getTableFields(objectClass)
                         + ")";
+                log.info("Executing " + query);
                 statement.executeUpdate(query);
             } catch (SQLException exception) {
                 throw new RuntimeException(exception.getMessage());
@@ -49,7 +56,7 @@ public class AnnotationImpl {
                     continue;
                 }
                 statement.append(delimiter).append(strategy.createQuery(annotation));
-                delimiter = ",";
+                delimiter = ", ";
             }
         }
         return statement.toString();
